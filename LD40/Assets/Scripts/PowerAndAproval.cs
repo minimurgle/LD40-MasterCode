@@ -20,6 +20,7 @@ public class PowerAndAproval : MonoBehaviour {
 
     public TurnManager turnManager;
     public PlayerMoney playermoney;
+    public GameOver gameOver;
     int totalCrime;
     int averageCrime;
     int totalPresence;
@@ -85,6 +86,7 @@ public class PowerAndAproval : MonoBehaviour {
         {
             publicAproval = 0;
         }
+        gameOver.CheckForAprovalLoss();
         publicAprovalText.text = "Public Approval:" + publicAproval.ToString();
     }
 

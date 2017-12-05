@@ -17,15 +17,10 @@ public class GameOver : MonoBehaviour {
     public Text gameOverText;
     public bool gameLost;
     int moneyGraceTurns = 1;
-    int aprovalGraceTurns = 1;
+    public int aprovalGraceTurns = 1;
 
-    public void CheckForLoss()
-    {
-        CheckForMoneyLoss();
-        CheckForAprovalLoss();
-    }
 
-    void CheckForMoneyLoss()
+    public void CheckForMoneyLoss()
     {
         if (playerMoney.totalMoney > 0)
         {
@@ -60,14 +55,16 @@ public class GameOver : MonoBehaviour {
         }
     }
 
-    void CheckForAprovalLoss()
+    public void CheckForAprovalLoss()
     {
         if (powerAndAproval.publicAproval > 0)
         {
+            Debug.Log("Aproval good");
             aprovalGraceTurns = 1;
         }
         else if (powerAndAproval.publicAproval <= 0 && aprovalGraceTurns > 0)
         {
+            Debug.Log("Aproval -1");
             aprovalGraceTurns -= 1;
             if (eventUI.event1Taken == false)
             {
@@ -91,6 +88,7 @@ public class GameOver : MonoBehaviour {
         }
         else if (powerAndAproval.publicAproval <= 0 && aprovalGraceTurns <= 0)
         {
+            Debug.Log("Aproval lose");
             gameOverText.text = "You were replaced due to growing concerns of your competence";
             GameLost();
         }
@@ -99,13 +97,10 @@ public class GameOver : MonoBehaviour {
 
     public void GameLost()
     {
-        if (playerMoney.totalMoney <= 0)
-        {
-            gameLost = true;
-            gameOverText.gameObject.SetActive(true);
-            SetScore();
-        }
-        
+
+        gameLost = true;
+        gameOverText.gameObject.SetActive(true);
+        SetScore();
     }
 
     public void GameWon()

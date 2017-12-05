@@ -64,10 +64,6 @@ public class TurnManager : MonoBehaviour {
             {
                 gameOver.GameWon();
             }
-            else
-            {
-                gameOver.CheckForLoss();
-            }
             sectorOverlayHandler.UpdateOverlays();
 
         }

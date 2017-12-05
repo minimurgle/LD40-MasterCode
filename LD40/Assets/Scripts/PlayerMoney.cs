@@ -7,6 +7,7 @@ using UnityEngine.Analytics;
 public class PlayerMoney : MonoBehaviour {
 
     public int totalMoney = 1000;
+    public GameOver gameOver;
     public Text moneyText;
 
     public void Start()
@@ -21,6 +22,7 @@ public class PlayerMoney : MonoBehaviour {
         {
             totalMoney = 0;
         }
+        gameOver.CheckForMoneyLoss();
   
     }
 

@@ -33,7 +33,7 @@ public class EventUI : MonoBehaviour {
         event1Taken = true;
         eventPanel.SetActive(true);
         eventPanelUp = true;
-        eventText.text = baseGoodEvents.baseGoodEventsList[baseCrimeEvents.choosenEvent] + " in " + baseGoodEvents.turnManager.sectors[baseGoodEvents.choosenSector];
+        eventText.text = baseGoodEvents.baseGoodEventsList[baseGoodEvents.choosenEvent] + " in " + baseGoodEvents.turnManager.sectors[baseGoodEvents.choosenSector];
     }
 
     public void GameOverEvent()
